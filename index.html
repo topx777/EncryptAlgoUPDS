@@ -49,6 +49,21 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="offset-md-5 col-md-2 align-content-center">
+				<button id="btn_decrypt" class="btn btn-lg btn-danger" data-toggle="tooltip" data-placement="top" title="Desencriptar TEXTO">
+					<i class="fas fa-unlock fa-3x"></i>
+				</button>
+			</div>
+			<div class="offset-md-2 col-md-8 mt-4">
+				<div class="jumbotron">
+					<div class="form-group">
+						<label for="message_ori" class="text-primary"><b>RESULTADO</b></label>
+						<textarea id="message_ori" class="form-control" rows="3" readonly></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 
@@ -62,25 +77,43 @@
 		const message = $('#message');
 		const type = $('#type_enc');
 		const result = $('#enc_message');
+		const original = $('#message_ori');
+
+		let enc_type = null;
 
 		$(document).ready(function () {
 			$('[data-toggle="tooltip"]').tooltip();
-
-			//Asignando NODOS
-			
 		});
 
 		$(document).on('click', '#btn_encrypt', function() {
-			switch (type.val()) {
+			enc_type = type.val();
+			switch (enc_type) {
 				case 'cesar':
-					result.val(encryptCesar(message.val()));
+					let enc_text = encryptCesar(message.val());
+					result.val(enc_text);
 					break;
 			
 				default:
 					alert('Algoritmo no definido');
 					break;
 			}			
+		});
 
+		$(document).on('click', '#btn_reset', function() {
+				
+		});
+
+		$(document).on('click', '#btn_decrypt', function() {
+			switch (enc_type) {
+				case 'cesar':
+					let decryp_text = decryptCesar(result.val());
+					original.val(decryp_text);
+					break;
+			
+				default:
+					alert('Algoritmo no definido');
+					break;
+			}	
 		});
 
 	</script>
