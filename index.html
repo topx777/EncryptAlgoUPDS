@@ -8,8 +8,40 @@
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 </head>
 <body>
-	
-	<h1 class="">Bienvenido</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 mb-5">
+				<h1 class="text-primary text-center">Bienvenido a Nuestro Programa de Encriptacion</h1>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="message" class="text-primary"><b>Mensaje</b></label>
+					<textarea id="message" class="form-control" rows="3"></textarea>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+				  <label for="type_enc" class="text-primary"><b>Tipo de Algoritmo</b></label>
+				  <select class="form-control" id="type_enc">
+					<option>Cesar</option>
+					<option>X</option>
+					<option>Y</option>
+				  </select>
+				</div>
+			</div>
+			<div class="col-md-2 m-auto">
+				<button type="button" class="btn btn-outline-primary">Encrypt</button>
+			</div>
+			<div class="offset-md-3 col-md-6 mt-5">
+				<div class="jumbotron">
+					<div class="form-group">
+						<label for="enc_message" class="text-danger"><b>RESULTADO</b></label>
+						<textarea id="enc_message" class="form-control" rows="3"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
