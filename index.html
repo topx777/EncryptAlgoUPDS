@@ -25,8 +25,8 @@
 				  <label for="type_enc" class="text-primary"><b>Tipo de Algoritmo</b></label>
 				  <select class="form-control" id="type_enc">
 					<option value="cesar">Cesar</option>
-					<option value="x">X</option>
-					<option value="y">Y</option>
+					<option value="vigenere">Vigenere</option>
+					<option value="...">...</option>
 				  </select>
 				</div>
 			</div>
@@ -72,6 +72,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
 	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="assets/js/algos/cesar.js"></script>
+	<script src="assets/js/algos/vigenere.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script>
 		const message = $('#message');
@@ -81,15 +82,23 @@
 
 		let enc_type = null;
 
+		let vigenereObject;
+
 		$(document).ready(function () {
 			$('[data-toggle="tooltip"]').tooltip();
 		});
 
 		$(document).on('click', '#btn_encrypt', function() {
 			enc_type = type.val();
+			let enc_text = "";
 			switch (enc_type) {
 				case 'cesar':
-					let enc_text = encryptCesar(message.val());
+					enc_text = encryptCesar(message.val());
+					result.val(enc_text);
+					break;
+				case 'vigenere':
+					vigenereObject = new Viegnere(message.val())
+					enc_text = vigenereObject.encryptVigenere();
 					result.val(enc_text);
 					break;
 			
@@ -104,10 +113,17 @@
 		});
 
 		$(document).on('click', '#btn_decrypt', function() {
+			let decryp_text = "";
 			switch (enc_type) {
 				case 'cesar':
-					let decryp_text = decryptCesar(result.val());
+					decryp_text = decryptCesar(result.val());
 					original.val(decryp_text);
+					break;
+				case 'vigenere':
+					if(vigenereObject !== undefined) {
+						decryp_text = vigenereObject.decryptVigenere();
+						original.val(decryp_text);
+					}
 					break;
 			
 				default:

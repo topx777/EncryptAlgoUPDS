@@ -1,4 +1,4 @@
-let dictionary = [
+let dictionaryC = [
 	'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 
 	'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 
 	'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 
@@ -13,7 +13,7 @@ function encryptCesar(text) {
 	let text_base = text.split('');
 	
 	for (let i = 0; i < text_base.length; i++) {
-		let dic_temp = Array.from(dictionary);
+		let dic_temp = Array.from(dictionaryC);
 
 		let step = 0;
 		let letter_founded = false;
@@ -27,7 +27,6 @@ function encryptCesar(text) {
 			}
 
 			if(step == path) {
-				// console.log(text_base[i], '===', dic_temp[j]);
 				text_base[i] = dic_temp[j];
 				break;
 			}
@@ -55,7 +54,7 @@ function decryptCesar(text) {
 	let text_base = text.split('');
 	
 	for (let i = 0; i < text_base.length; i++) {
-		let dic_temp = Array.from(dictionary);
+		let dic_temp = Array.from(dictionaryC);
 
 		let step = 0;
 		let letter_founded = false;
@@ -69,7 +68,6 @@ function decryptCesar(text) {
 			}
 
 			if(step == path) {
-				// console.log(text_base[i], '===', dic_temp[j]);
 				text_base[i] = dic_temp[j];
 				break;
 			}
