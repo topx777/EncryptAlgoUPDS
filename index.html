@@ -34,9 +34,9 @@
 					<button id="btn_encrypt" type="button" class="btn btn-lg btn-primary" data-toggle="tooltip" data-placement="top" title="Encriptar TEXTO">
 						<i class="fas fa-lock fa-3x"></i>
 					</button>
-					<button id="btn_reset" type="button" class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="REINICIAR">
+					<a id="btn_reset" href="index.html" class="btn btn-lg btn-success" data-toggle="tooltip" data-placement="top" title="REINICIAR">
 						<i class="fas fa-sync fa-3x"></i>
-					</button>
+					</a>
 				</div>
 			</div>
 			<div class="offset-md-2 col-md-8 mt-5">
@@ -104,10 +104,6 @@
 					alert('Algoritmo no definido');
 					break;
 			}			
-		});
-
-		$(document).on('click', '#btn_reset', function() {
-				
 		});
 
 		$(document).on('click', '#btn_decrypt', function() {
