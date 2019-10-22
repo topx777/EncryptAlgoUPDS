@@ -1,4 +1,4 @@
-class Viegnere {
+class Vigenere {
 
 	constructor(text) {
 		this.table = [];
